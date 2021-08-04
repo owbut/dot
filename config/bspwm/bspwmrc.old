@@ -1,0 +1,44 @@
+#! /bin/sh
+
+# pulseaudio
+killall pulseaudio
+
+# wallpaper
+nitrogen --restore &
+
+# notification
+killall dunst && dunst &
+
+# compositor
+picom -f &
+
+# start polybar
+polybar main &
+polybar extra &
+
+# start sxhkd
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# bspwm config
+bspc monitor HDMI-0 -d I III IV V VI VII VIII IX X
+bspc monitor DVI-I-1 -d II
+
+bspc config border_width         3
+bspc config window_gap          10
+bspc config focused_border_color '#8ec07c'
+bspc config normal_border_color '#504945'
+
+# bspc config split_ratio          0.52
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+# start polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
