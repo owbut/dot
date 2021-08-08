@@ -1,4 +1,4 @@
 #! /bin/sh
 killall polybar
-polybar -c .config/bspwm/polybar/config.ini main &
-polybar -c .config/bspwm/polybar/config.ini extra &
+polybar -c $HOME/.config/bspwm/polybar/config.ini main &
+polybar -c $HOME/.config/bspwm/polybar/config.ini extra &
