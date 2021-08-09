@@ -14,10 +14,12 @@ hsetroot -fill /home/b/Pictures/gruv-forest.jpg
 
 # Fix pulseaudio after killing bspwm
 killall pulseaudio
+pulseaudio &
 
 # Monitor configuration
-bspc monitor HDMI-0 -d I II III IV V VI VII VIII IX
-bspc monitor DVI-D-0 -d X
+bspc monitor HDMI-0 -d 1 2 3 4 5 6 7 8 9
+bspc monitor DVI-D-0 -d 10
+bspc monitor DVI-D-0 -s HDMI-0
 
 # Set mouse modifier
 bspc config pointer_modifier	mod4
@@ -29,15 +31,15 @@ bspc config focus_follows_pointer true
 bspc config border_width         12
 
 # Split ratio
-bspc config split_ratio          0.60
+#bspc config split_ratio          0.60
 
 
 # Gap between windows
 bspc config window_gap          15
 
 # Focused and non-focused border colors
-#bspc config normal_border_color '#504945'
-#bspc config focused_border_color '#665c54'
+bspc config normal_border_color '#504945'
+bspc config focused_border_color '#665c54'
 
 # Window modes
 bspc config borderless_monocle   true
